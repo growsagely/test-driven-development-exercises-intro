@@ -1,9 +1,7 @@
 class Stack<T> {
-  private readonly UNDERFLOW_ERROR = new Error('empty stack');
-  private readonly OVERFLOW_ERROR = new Error('stack capacity exceeded');
+  private readonly UNDERFLOW_ERROR = new Error('stack underflow');
+  private readonly OVERFLOW_ERROR = new Error('stack overflow');
   private readonly data: T[] = [];
-
-  readonly capacity: number;
 
   private isEmpty(): boolean {
     return this.data.length === 0;
@@ -13,9 +11,7 @@ class Stack<T> {
     return this.size() === this.capacity;
   }
 
-  constructor(capacity = Infinity) {
-    this.capacity = capacity;
-  }
+  constructor(readonly capacity = Infinity) {}
 
   push(item: T): void {
     if (this.atCapacity()) throw this.OVERFLOW_ERROR;

@@ -31,7 +31,7 @@ describe('Stack', () => {
     test('throw if capacity is exceeded', () => {
       sut = new Stack<number>(3);
       [1, 2, 3].forEach((x) => sut.push(x));
-      expect(() => sut.push(4)).toThrow('stack capacity exceeded');
+      expect(() => sut.push(4)).toThrow('stack overflow');
     });
   });
 
@@ -57,7 +57,7 @@ describe('Stack', () => {
     });
 
     test('throw if stack is empty', () => {
-      expect(() => sut.peek()).toThrow('empty stack');
+      expect(() => sut.peek()).toThrow('stack underflow');
     });
   });
 
@@ -68,7 +68,7 @@ describe('Stack', () => {
     });
 
     test('throw if stack is empty', () => {
-      expect(() => sut.pop()).toThrow('empty stack');
+      expect(() => sut.pop()).toThrow('stack underflow');
     });
   });
 });
