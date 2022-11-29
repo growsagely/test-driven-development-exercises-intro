@@ -8,22 +8,19 @@ describe('Stack', () => {
   });
 
   describe('constructor should', () => {
-    test('create an empty stack', () => {
+    test('initalize default values', () => {
       expect(sut.size()).toBe(0);
       expect(sut.capacity).toBe(Infinity);
     });
 
-    test('default to an infinite capacity', () => {
-      expect(sut.capacity).toBe(Infinity);
-    });
-
-    test('accept a capacity limit', () => {
+    test('accept a readonly capacity limit', () => {
       sut = new Stack(5);
+      expect(sut.capacity).toBe(5);
     });
   });
 
   describe('push should', () => {
-    test('accepts a item and increment the size', () => {
+    test('accepts an item and increment the size', () => {
       sut.push(5);
       expect(sut.size()).toBe(1);
     });
