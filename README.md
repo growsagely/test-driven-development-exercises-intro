@@ -13,6 +13,13 @@ Requirements
     ``` bash
     git clone https://github.com/growsagely/test-driven-development-exercises-intro.git
     ```
-1. Open the cloned folder with Visual Studio Code
-1. The [dev
-   container](https://code.visualstudio.com/docs/devcontainers/containers) should auto-start
+1. Open the cloned folder with VS Code
+1. Click the `Remote Window` button in lower left hand corner of the VS Code
+   window.
+   ![Open Container Window](./readme_img/open_container_window.png)
+1. Select `Reopen in Container` from the select menu.
+    ![Reopen in Container](./readme_img/reopen.png)
+1. Be patient, the first time loading the container may take several minutes.
+   Subsequent loads will be much faster.
+1. Press Ctrl+Shift+\` to open a terminal window
+1. Type `npm run test:watch` to auto run the test suite any time a file changes.
