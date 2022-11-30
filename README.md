@@ -14,3 +14,5 @@ Requirements
     git clone https://github.com/growsagely/test-driven-development-exercises-intro.git
     ```
 1. Open the cloned folder with Visual Studio Code
+1. The [dev
+   container](https://code.visualstudio.com/docs/devcontainers/containers) should auto-start
