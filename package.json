@@ -19,7 +19,11 @@
     "type": "git",
     "url": "git+https://github.com/growsagely/test-driven-development-exercises-intro.git"
   },
-  "keywords": ["TDD", "datastructures", "typescript"],
+  "keywords": [
+    "TDD",
+    "datastructures",
+    "typescript"
+  ],
   "author": "Dale Alleshouse",
   "license": "ISC",
   "bugs": {
@@ -43,17 +47,35 @@
     "typescript": "^4.9.3"
   },
   "jest": {
-    "roots": ["<rootDir>/src"],
+    "roots": [
+      "<rootDir>/src"
+    ],
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "moduleFileExtensions": ["ts", "js"],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
     "transform": {
-      "^.+\\.ts?$": ["ts-jest"]
+      "^.+\\.ts?$": [
+        "ts-jest"
+      ]
     },
-    "testMatch": ["**/src/__test__/**/?(*.)+(spec|test).[jt]s"],
+    "testMatch": [
+      "**/src/__test__/**/?(*.)+(spec|test).[jt]s"
+    ],
     "globals": {},
-    "collectCoverageFrom": ["<rootDir>/**/*.{ts, tsx}"],
-    "coveragePathIgnorePatterns": ["/node_modules/"],
-    "coverageReporters": ["json", "lcov", "text", "text-summary"]
+    "collectCoverageFrom": [
+      "<rootDir>/**/*.{ts, tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary"
+    ]
   }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "TDD ENV",
+  "dockerFile": "Dockerfile",
+  "runArgs": ["-u", "node"],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "postCreateCommand": "npm install",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint",
+    "christian-kohler.npm-intellisense"
+  ]
+}
