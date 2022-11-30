@@ -15,7 +15,7 @@ Requirements
     ```
 1. Open the cloned folder with VS Code
 1. Click the `Remote Window` button in lower left hand corner of the VS Code
-   window.
+   window.  
    ![Open Container Window](./readme_img/open_container_window.png)
 1. Select `Reopen in Container` from the select menu.
     ![Reopen in Container](./readme_img/reopen.png)
