@@ -7,7 +7,7 @@
 1. Navigate to the
    [test-driven-development-exercises-intro](https://github.com/growsagely/test-driven-development-exercises-intro)
    repository
-1. Open Codespaces  
+1. Open Codespaces
    ![Codespace](./readme_img/codespace.png)
 
 ### Local Development Container
@@ -23,9 +23,9 @@ Requirements
     ``` bash
     git clone https://github.com/growsagely/test-driven-development-exercises-intro.git
     ```
-1. Open the cloned folder with VS Code
-1. Click the `Remote Window` button in lower left hand corner of the VS Code
-   window.
+1. Open the cloned folder with Visual Studio Code
+1. Click the `Remote Window` button in lower left hand corner of the Visual
+   Studio Code window.
    ![Open Container Window](./readme_img/open_container_window.png)
 1. Select `Reopen in Container` from the select menu.
     ![Reopen in Container](./readme_img/reopen.png)
