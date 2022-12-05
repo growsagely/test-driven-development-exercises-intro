@@ -1,19 +1,15 @@
 interface INode<T> {
-  data: () => T;
+  readonly data: T;
   next: () => INode<T> | null;
   previous: () => INode<T> | null;
 }
 
 class Node<T> implements INode<T> {
   constructor(
-    private readonly _data: T,
+    readonly data: T,
     private _next: Node<T> | null = null,
     private _previous: Node<T> | null = null
   ) {}
-
-  public data(): T {
-    return this._data;
-  }
 
   public next(): Node<T> | null {
     return this._next;
@@ -37,12 +33,16 @@ class LinkedList<T> {
 
   private _head: Node<T> | null = null;
 
+  private nullGuard(parameter: any): void {
+    if (parameter === null || parameter === undefined) throw this.BAD_PARAMETER;
+  }
+
   public head(): INode<T> | null {
     return this._head;
   }
 
   public insert(data: T): INode<T> {
-    if (data === null || data === undefined) throw this.BAD_PARAMETER;
+    this.nullGuard(data);
 
     const n = new Node(data, this._head);
     if (this._head !== null) this._head.updatePrevious(n);
@@ -51,7 +51,7 @@ class LinkedList<T> {
   }
 
   public delete(node: INode<T>): void {
-    if (node === null || node === undefined) throw this.BAD_PARAMETER;
+    this.nullGuard(node);
 
     if (this._head === node) {
       this._head = this._head.next();
@@ -66,12 +66,11 @@ class LinkedList<T> {
   }
 
   public search(comparator: (data: T) => boolean): INode<T> | null {
-    if (comparator === null || comparator === undefined)
-      throw this.BAD_PARAMETER;
+    this.nullGuard(comparator);
 
     let current = this._head;
     while (current !== null) {
-      if (comparator(current.data())) return current;
+      if (comparator(current.data)) return current;
       current = current.next();
     }
     return null;

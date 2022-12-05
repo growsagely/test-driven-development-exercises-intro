@@ -31,14 +31,14 @@ describe('LinkedList', () => {
       const expected = 138;
 
       sut.insert(expected);
-      expect(sut.head()?.data()).toBe(expected);
+      expect(sut.head()?.data).toBe(expected);
     });
 
     test('create a node with null next and previous properties', () => {
       const expected = 138;
 
       sut.insert(expected);
-      expect(sut.head()?.data()).toBe(expected);
+      expect(sut.head()?.data).toBe(expected);
       expect(sut.head()?.next()).toBeNull();
       expect(sut.head()?.previous()).toBeNull();
     });
@@ -48,8 +48,8 @@ describe('LinkedList', () => {
       const expected2 = 1138;
       [expected, expected2].forEach((x) => sut.insert(x));
 
-      expect(sut.head()?.data()).toBe(expected2);
-      expect(sut.head()?.next()?.data()).toBe(expected);
+      expect(sut.head()?.data).toBe(expected2);
+      expect(sut.head()?.next()?.data).toBe(expected);
     });
 
     test('set the new node as previous on head().next()', () => {
@@ -62,7 +62,7 @@ describe('LinkedList', () => {
       const expected = 138;
 
       const returned = sut.insert(expected);
-      expect(returned.data()).toBe(expected);
+      expect(returned.data).toBe(expected);
     });
   });
 
@@ -126,8 +126,8 @@ describe('LinkedList', () => {
 
       deleteNode(sut, sut.head()?.next() ?? null);
 
-      expect(sut.head()?.data()).toBe(head);
-      expect(sut.head()?.next()?.data()).toBe(tail);
+      expect(sut.head()?.data).toBe(head);
+      expect(sut.head()?.next()?.data).toBe(tail);
       expect(sut.head()?.next()?.next()).toBeNull();
     });
 
@@ -139,10 +139,10 @@ describe('LinkedList', () => {
       [tail, middle, head].forEach((x) => sut.insert(x));
       deleteNode(sut, sut.head()?.next() ?? null);
 
-      expect(sut.head()?.next()?.data()).toBe(tail);
+      expect(sut.head()?.next()?.data).toBe(tail);
       expect(sut.head()?.previous()).toBeNull();
 
-      expect(sut.head()?.next()?.previous()?.data()).toBe(head);
+      expect(sut.head()?.next()?.previous()?.data).toBe(head);
       expect(sut.head()?.next()?.next()).toBeNull();
     });
   });
@@ -165,7 +165,7 @@ describe('LinkedList', () => {
       [138, 1138, 11138].forEach((x) => sut.insert(x));
 
       const found = sut.search((x) => x === 138);
-      expect(found?.data()).toBe(138);
+      expect(found?.data).toBe(138);
     });
 
     test('return null if the comparator evalutes to false for all values', () => {
