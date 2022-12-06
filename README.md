@@ -16,17 +16,17 @@ should feel comfortable with the concept by the end of these exercises.
 The goal is to build a rudimentary, [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) using TypeScript.
 We will implement four methods:
 - `head`: returns the first `node` in the list or `null` if no objects exist.
-- `insert`: accepts a data item, generates a new node placing it at `head.`
+- `insert`: accepts a data item, generates a new `node` placing it at `head.`
 - `delete`: accepts a `node` and removes it from the list by modifying its
-    `next` and `previous`.
+    `next` and `previous` attributes.
 - `search`: accepts a search predicate and returns the first item in the list
     that satisfies the predicate.
 
 `node` objects hold data and have no logic. From the consumer's perspective,
 they are immutable. They have three attributes:
-- `data`: this is the underlying data they are carrying.
-- `next`: a pointer to the next item in the list.
-- `previous`: a pointer to the previous item in the list.
+- `data`: data passed to the linked list `insert` method.
+- `next`: a pointer to the next `node` in the list.
+- `previous`: a pointer to the previous `node` in the list.
 
 Follow the instruction carefully as each step builds upon the last.
 
