@@ -32,9 +32,6 @@ Prerequisites
 
 Configuration Steps
 1. Log into GitHub
-1. Navigate to the
-   [test-driven-development-exercises-intro](https://github.com/growsagely/test-driven-development-exercises-intro)
-   repository
 1. Open Codespaces
 
 	![Codespace](./readme_img/codespace.png)
