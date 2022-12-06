@@ -10,11 +10,75 @@ More concisely:
 
 Red (make it fail) -> Green (make it pass) -> Refactor (make it pretty).
 
-Done correctly, developers maintain a tight sub sixty second feedback loop. You
-should feel comfortable with the concept by the end of these exercises.
+The Red-Green-Refactor cycle enables developers to maintain a tight
+sub-sixty-second feedback loop. These exercises strengthen your understanding by
+explicitly walking you through several loops while building a rudimentary
+[doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) using
+TypeScript.  Next, you'll be able to apply your learning by completing the
+implementation solo. Let's get started.
 
-The goal is to build a rudimentary, [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) using TypeScript.
-We will implement four methods:
+# Configure Your Environment
+For your convince, this repository has a pre-configured development container.
+There are two ways to access it easily: GitHub Codespaces and using Visual
+Studio Code in conjunction with Docker. You also have the option to clone the
+repo and configure any editor you like (assuming you can do so without support).
+See the instructions below.
+
+Once you can view the code in an editor, move to the next section.
+
+## GitHub Codespaces
+Prerequisites
+- GitHub account
+
+Configuration Steps
+1. Log into GitHub
+1. Navigate to the
+   [test-driven-development-exercises-intro]https://github.com/growsagely/test-driven-development-exercises-intro)
+   repository
+1. Open Codespaces
+
+	![Codespace](./readme_img/codespace.png)
+
+## Local Development Container
+Prerequisites
+- GitHub account
+- Git
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Docker](https://docs.docker.com/get-docker/)
+
+Configuration Steps
+1. Install the [Dev
+   Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+   Visual Studio Code plugin.
+1. Clone the exercise repository
+    ``` bash
+    git clone https://github.com/growsagely/test-driven-development-exercises-intro.git
+    ```
+1. Open the cloned folder with Visual Studio Code
+1. Click the `Remote Window` button in the lower left-hand corner of the Visual
+   Studio Code window.
+
+   ![Open Container Window](./readme_img/open_container_window.png)
+1. Select `Reopen in Container` from the select menu.
+    ![Reopen in Container](./readme_img/reopen.png)
+1. Be patient; the first time loading the container may take several minutes.
+   Subsequent loads will be much faster.
+
+# Auto-Run the Test Suite
+1. Verify that you are working from the `take-home-exercises` branch.
+1. Press `Ctrl+Shift+\` to open a terminal window in Visual Studio Code.
+1. Type `npm run test:watch` to auto-run the test suite whenever a file changes.
+   The terminal should display passing tests.
+1. Open the file `src/__tests__/testsuite.spec.ts` file and change the code on
+   line 3 from `expect(true).toBe(true);`  to `expect(true).toBe(false);`.
+1. Verify that the terminal automatically displays a failing test.
+1. Restore the test to a passing state.
+
+# Code the Linked List
+## Requirements
+The goal is to build a rudimentary, [doubly linked
+list](https://en.wikipedia.org/wiki/Doubly_linked_list) using TypeScript. It
+should be constrained to a single type of data and expose four methods:
 - `head`: returns the first `node` in the list or `null` if no objects exist.
 - `insert`: accepts a data item, generates a new `node` placing it at `head.`
 - `delete`: accepts a `node` and removes it from the list by modifying its
@@ -22,52 +86,57 @@ We will implement four methods:
 - `search`: accepts a search predicate and returns the first item in the list
     that satisfies the predicate.
 
-`node` objects hold data and have no logic. From the consumer's perspective,
-they are immutable. They have three attributes:
-- `data`: data passed to the linked list `insert` method.
-- `next`: a pointer to the next `node` in the list.
-- `previous`: a pointer to the previous `node` in the list.
+From the consumer's perspective, `node` objects are immutable data structures
+with no logic. They have three attributes:
+- `data`: object passed to the linked list `insert` method.
+- `next`: pointer to the next `node` in the list.
+- `previous`: pointer to the previous `node` in the list.
 
-Follow the instruction carefully as each step builds upon the last.
+Below is an example of a linked list's intended use.
 
-# Configure Your Environment
-Find the take-home exercise GitHub repository: [here](https://github.com/growsagely/test-driven-development-exercises-intro/tree/take-home-exercises). For your convince, it has a pre-configured development container. There are two ways to access it easily: GitHub Code Spaces and using Visual Studio Code in conjunction with Docker locally. You also have the option to clone the repo and configure any editor you like (assuming you can do so without support). See the instructions below.
+```typescript
+const ll = new LinkedList<string>();
+// insert four strings into the list
+ll.insert('five');
+ll.insert('ten');
+ll.insert('fifteen');
+ll.insert('twenty');
 
-Once you can view the code in an editor, move to the next step.
+// traverse the list
+let node = ll.head();
+while (node !== null) {
+    // log each string
+    console.log(node.data);
 
-## GitHub Code Spaces
-1. Log into GitHub
-1. Navigate to the [test-driven-development-exercises-intro]https://github.com/growsagely/test-driven-development-exercises-intro) repository
-1. Open Codespaces
-	![Codespace](./readme_img/codespace.png)
+    // delete the string fifteen from the list
+    if (node.data === 'fifteen') ll.delete(node);
 
-## Local Development Container
-Requirements
-- Git
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Docker](https://docs.docker.com/get-docker/)
+    node = node.next();
+}
 
-1. Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) Visual Studio Code plugin.
-1. Clone the exercise repository
-    ``` bash
-    git clone https://github.com/growsagely/test-driven-development-exercises-intro.git
-    ```
-1. Open the cloned folder with Visual Studio Code
-1. Click the `Remote Window` button in the lower left-hand corner of the Visual Studio Code window.
-   ![Open Container Window](./readme_img/open_container_window.png)
-1. Select `Reopen in Container` from the select menu.
-    ![Reopen in Container](./readme_img/reopen.png)
-1. Be patient; the first time loading the container may take several minutes. Subsequent loads will be much faster.
+// this search will return null because the string was deleted
+if (ll.search((x) => x === 'fifteen') === null) console.log('fifteen was not found');
 
-# Auto-Run the Test Suite
-1. Press `Ctrl+Shift+\` to open a terminal window in Visual Studio Code.
-1. Type `npm run test:watch` to auto-run the test suite whenever a file changes. The terminal should display passing tests.
-1. Open the file `src/__tests__/testsuite.spec.ts` file and change the code on line 3 from `expect(true).toBe(true);`  to `expect(true).toBe(false);`.
-1. Verify that the terminal automatically displays a failing test.
-1. Restore the test to a passing state.
+// this search will return the node that contains the string five
+const result = ll.search((x) => x === 'five');
+if (result !== null) console.log(result.data);
+```
 
-# Code the Linked List
-Requirements:
+Executing the code above should produce the following console output:
+
+``` bash
+twenty
+fifteen
+ten
+five
+fifteen was not found
+five
+```
+
+Don't be alarmed if these seems a bit disorienting. The point of this workshop
+is to learn TDD, the linked list is just a training conduit. Follow the
+instruction carefully as each step builds upon the last.
+
 
 ## Loop 1
 ### Red
@@ -596,3 +665,27 @@ class LinkedList<T> {
 
 export { LinkedList };
 ```
+
+# Finish the Implementation
+There are two remaining implementation tasks:
+
+- delete
+- search
+
+Complete the implementation strictly following the three laws of TDD. Refer back
+to the requirements for implementation details. Here are a few tips to consider.
+
+- You may need different test cases for deleting first, last, and middle
+    `Node`s.
+- You may need to cast `INode` to `Node` inside the `delete` method.
+- Make sure to test the state of the `next` and `previous` attributes when you
+    delete a node.
+- You may need to modify `Node` to make `next` internally mutable the same way
+    `previous` is.
+- If you get stuck on implementation details, you can refer to the linked list
+    in the main branch, but please only do this as a last resort.
+
+Hopefully, the exercises instilled an instinct for the Red-Green-Refactor cycle. TDD helps programmers break problems down into smaller, more manageable chunks. If you get stuck, ask yourself, what's the most straightforward test I can write to show progress? That is often enough to drive you forward. Please reach out to Dale Alleshouse if you have any questions at all.
+
+Once your implementation is complete, schedule a 1:1 meeting with Dale
+Alleshouse to review your code.

@@ -1,0 +1,52 @@
+interface INode<T> {
+  readonly data: T;
+  next: () => INode<T> | null;
+  previous: () => INode<T> | null;
+}
+
+class Node<T> implements INode<T> {
+  constructor(
+    readonly data: T,
+    readonly _next: Node<T> | null = null,
+    private _previous: Node<T> | null = null
+  ) {}
+
+  next(): Node<T> | null {
+    return this._next;
+  }
+
+  previous(): Node<T> | null {
+    return this._previous;
+  }
+
+  updatePrevious(previous: Node<T> | null): void {
+    this._previous = previous;
+  }
+}
+
+class LinkedList<T> {
+  private _head: Node<T> | null = null;
+
+  private nullGuard(parameter: any): void {
+    if (parameter === null || parameter === undefined)
+      throw new Error('null or undefined parameter');
+  }
+
+  head(): INode<T> | null {
+    return this._head;
+  }
+
+  insert(data: T): void {
+    this.nullGuard(data);
+
+    const n = new Node(data, this._head);
+    if (this._head !== null) this._head.updatePrevious(n);
+    this._head = n;
+  }
+
+  delete(node: INode<T>): void {
+    this.nullGuard(node);
+  }
+}
+
+export { LinkedList };

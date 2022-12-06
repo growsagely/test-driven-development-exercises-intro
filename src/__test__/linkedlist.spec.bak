@@ -1,0 +1,72 @@
+import { LinkedList } from '../linkedlist';
+
+describe('Linked List', () => {
+  let sut: LinkedList<number>;
+
+  beforeEach(() => {
+    sut = new LinkedList();
+  });
+
+  describe('constructor should', () => {
+    test('initalize the head to null', () => {
+      expect(sut.head()).toBeNull();
+    });
+  });
+
+  describe('insert should', () => {
+    test('thorw if data is null or undefined', () => {
+      /**
+       * Forcing bad usage for the test
+       * @ts-expect-error */
+      expect(() => sut.insert(null)).toThrow('null or undefined parameter');
+      /**
+       * Forcing bad usage for the test
+       * @ts-expect-error */
+      expect(() => sut.insert(undefined)).toThrow(
+        'null or undefined parameter'
+      );
+    });
+
+    test('create new node at head containing data given first insert item', () => {
+      const expected = 138;
+      sut.insert(expected);
+      expect(sut.head()?.data).toBe(expected);
+    });
+
+    test('create new node at head containing null next and previous', () => {
+      sut.insert(138);
+      expect(sut.head()?.next()).toBeNull();
+      expect(sut.head()?.previous()).toBeNull();
+    });
+
+    test('move head to next and create new head given non null head', () => {
+      const head = 138;
+      const next = 1138;
+      [next, head].forEach((x) => sut.insert(x));
+
+      expect(sut.head()?.data).toBe(head);
+      expect(sut.head()?.next()?.data).toBe(next);
+    });
+
+    test('update previous given non null head', () => {
+      [138, 1138].forEach((x) => sut.insert(x));
+
+      expect(sut.head()?.next()?.previous()).toBe(sut.head());
+    });
+  });
+
+  describe('delete should', () => {
+    test('thorw if node is null or undefined', () => {
+      /**
+       * Forcing bad usage for the test
+       * @ts-expect-error */
+      expect(() => sut.delete(null)).toThrow('null or undefined parameter');
+      /**
+       * Forcing bad usage for the test
+       * @ts-expect-error */
+      expect(() => sut.delete(undefined)).toThrow(
+        'null or undefined parameter'
+      );
+    });
+  });
+});
