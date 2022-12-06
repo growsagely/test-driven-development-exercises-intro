@@ -673,7 +673,8 @@ There are two remaining implementation tasks:
 - search
 
 Complete the implementation strictly following the three laws of TDD. Refer back
-to the requirements for implementation details. Here are a few tips to consider.
+to the requirements for implementation details. Try running the example code in
+the requirements and verify the output matches. Here are a few tips to consider.
 
 - You may need different test cases for deleting first, last, and middle
     `Node`s.
@@ -685,7 +686,11 @@ to the requirements for implementation details. Here are a few tips to consider.
 - If you get stuck on implementation details, you can refer to the linked list
     in the main branch, but please only do this as a last resort.
 
-Hopefully, the exercises instilled an instinct for the Red-Green-Refactor cycle. TDD helps programmers break problems down into smaller, more manageable chunks. If you get stuck, ask yourself, what's the most straightforward test I can write to show progress? That is often enough to drive you forward. Please reach out to Dale Alleshouse if you have any questions at all.
+Hopefully, the exercises instilled an instinct for the Red-Green-Refactor cycle.
+TDD helps programmers break problems down into smaller, more manageable chunks.
+If you get stuck, ask yourself, what's the most straightforward test I can write
+to show progress? That is often enough to drive you forward. Please reach out to
+Dale Alleshouse if you have any questions at all.
 
 Once your implementation is complete, schedule a 1:1 meeting with Dale
 Alleshouse to review your code.
