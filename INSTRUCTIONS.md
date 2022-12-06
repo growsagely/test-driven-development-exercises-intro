@@ -1,15 +1,34 @@
 # Test-Driven Development Workshop Exercises
-This set of exercises aims to reinforce your understanding of the three laws of test-driven development.
+This set of exercises aims to reinforce your understanding of the three laws of
+test-driven development.
 
-Write NO production code except to pass a failing test.
-Write only enough of a test to demonstrate a failure.
-Write only enough production code to pass the test.
+1. Write _NO production code_ except to pass a failing test.
+1. Write _only enough of a test_ to demonstrate a failure.
+1. Write _only enough production code_ to pass the test.
 
 More concisely:
 
 Red (make it fail) -> Green (make it pass) -> Refactor (make it pretty).
 
-The goal is to maintain a tight sub sixty second feedback loop. The exercises walk through creating a doubly linked list using TypeScript. Follow the instruction carefully as each step builds upon the last.
+Done correctly, developers maintain a tight sub sixty second feedback loop. You
+should feel comfortable with the concept by the end of these exercises.
+
+The goal is to build a rudimentary, [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) using TypeScript.
+We will implement four methods:
+- `head`: returns the first `node` in the list or `null` if no objects exist.
+- `insert`: accepts a data item, generates a new node placing it at `head.`
+- `delete`: accepts a `node` and removes it from the list by modifying its
+    `next` and `previous`.
+- `search`: accepts a search predicate and returns the first item in the list
+    that satisfies the predicate.
+
+`node` objects hold data and have no logic. From the consumer's perspective,
+they are immutable. They have three attributes:
+- `data`: this is the underlying data they are carrying.
+- `next`: a pointer to the next item in the list.
+- `previous`: a pointer to the previous item in the list.
+
+Follow the instruction carefully as each step builds upon the last.
 
 # Configure Your Environment
 Find the take-home exercise GitHub repository: [here](https://github.com/growsagely/test-driven-development-exercises-intro/tree/take-home-exercises). For your convince, it has a pre-configured development container. There are two ways to access it easily: GitHub Code Spaces and using Visual Studio Code in conjunction with Docker locally. You also have the option to clone the repo and configure any editor you like (assuming you can do so without support). See the instructions below.
