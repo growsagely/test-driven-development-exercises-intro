@@ -1,0 +1,32 @@
+  {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts?$": [
+        "ts-jest"
+      ]
+    },
+    "testMatch": [
+      "**/src/__test__/acceptance/**/?(*.)+(spec|test).[jt]s"
+    ],
+    "globals": {},
+    "collectCoverageFrom": [
+      "<rootDir>/**/*.{ts, tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary"
+    ]
+  }

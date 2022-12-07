@@ -61,18 +61,7 @@ Configuration Steps
 1. Be patient; the first time loading the container may take several minutes.
    Subsequent loads will be much faster.
 
-# Auto-Run the Test Suite
-1. Verify that you are working from the `take-home-exercises` branch.
-1. Press `Ctrl+Shift+\` to open a terminal window in Visual Studio Code.
-1. Type `npm run test:watch` to auto-run the test suite whenever a file changes.
-   The terminal should display passing tests.
-1. Open the file `src/__tests__/testsuite.spec.ts` file and change the code on
-   line 3 from `expect(true).toBe(true);`  to `expect(true).toBe(false);`.
-1. Verify that the terminal automatically displays a failing test.
-1. Restore the test to a passing state.
-
-# Code the Linked List
-## Requirements
+# Requirements
 The goal is to build a rudimentary, [doubly linked
 list](https://en.wikipedia.org/wiki/Doubly_linked_list) using TypeScript. It
 should be constrained to a single type of data and expose four methods:
@@ -89,7 +78,12 @@ with no logic. They have three attributes:
 - `next`: pointer to the next `node` in the list.
 - `previous`: pointer to the previous `node` in the list.
 
-Below is an example of a linked list's intended use.
+Don't be alarmed if these seems a bit disorienting. The point of this workshop
+is to learn TDD, the linked list is just a training conduit. Follow the
+instruction carefully as each step builds upon the last.
+
+# Acceptance Tests
+The code below represents the linked list's acceptance criteria.
 
 ```typescript
 const ll = new LinkedList<string>();
@@ -130,11 +124,26 @@ fifteen was not found
 five
 ```
 
-Don't be alarmed if these seems a bit disorienting. The point of this workshop
-is to learn TDD, the linked list is just a training conduit. Follow the
-instruction carefully as each step builds upon the last.
+To execute the acceptance test:
 
+1. Verify that you are working from the `take-home-exercises` branch.
+1. Press `Ctrl+Shift+\` to open a terminal window in Visual Studio Code.
+1. Type `npm run test:acceptance`.
 
+After successfully completing all the exercises, the acceptance tests should
+pass.
+
+# Auto-Run the Test Suite
+1. Verify that you are working from the `take-home-exercises` branch.
+1. Press `Ctrl+Shift+\` to open a terminal window in Visual Studio Code.
+1. Type `npm run test:watch` to auto-run the test suite whenever a file changes.
+   The terminal should display passing tests.
+1. Open the file `src/__tests__/testsuite.spec.ts` file and change the code on
+   line 3 from `expect(true).toBe(true);`  to `expect(true).toBe(false);`.
+1. Verify that the terminal automatically displays a failing test.
+1. Restore the test to a passing state.
+
+# Code the Linked List
 ## Loop 1
 ### Red
 The most straightforward failing test we can write is to try to import the
@@ -688,6 +697,13 @@ TDD helps programmers break problems down into smaller, more manageable chunks.
 If you get stuck, ask yourself, what's the most straightforward test I can write
 to show progress? That is often enough to drive you forward. Please reach out to
 Dale Alleshouse if you have any questions at all.
+
+After completing your implementation, type `npm run test:acceptance` into the
+Visual Studio Code terminal and verify that the acceptance tests pass.
+
+As an additional check, type `npm run test:coverage` into the Visual Studio
+terminal to see your test coverage.  If you have any lines of code that aren't
+covered by tests, that may indicate that you were not following the three laws.
 
 Once your implementation is complete, schedule a 1:1 meeting with Dale
 Alleshouse to review your code.

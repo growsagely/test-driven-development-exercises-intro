@@ -11,6 +11,7 @@
   "scripts": {
     "test": "jest --verbose",
     "test:watch": "jest --watchAll --verbose",
+    "test:acceptance": "jest -c jest.acceptance.config.json --verbose",
     "test:coverage": "jest --coverage",
     "build": "tsc",
     "lint": "eslint --ext .ts src"
@@ -52,6 +53,7 @@
     ],
     "preset": "ts-jest",
     "testEnvironment": "node",
+    "testPathIgnorePatterns": ["__test__/acceptance"],
     "moduleFileExtensions": [
       "ts",
       "js"
@@ -69,7 +71,8 @@
       "<rootDir>/**/*.{ts, tsx}"
     ],
     "coveragePathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "/__test__/"
     ],
     "coverageReporters": [
       "json",
