@@ -7,7 +7,7 @@ interface INode<T> {
 class Node<T> implements INode<T> {
   constructor(
     readonly data: T,
-    private _next: Node<T> | null = null,
+    private _next: Node<T> | null,
     private _previous: Node<T> | null = null
   ) {}
 
@@ -33,6 +33,8 @@ class LinkedList<T> {
 
   private _head: Node<T> | null = null;
 
+  // any is OK here because it's just a null guard
+  // eslint-disable-next-line
   private nullGuard(parameter: any): void {
     if (parameter === null || parameter === undefined) throw this.BAD_PARAMETER;
   }
