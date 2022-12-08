@@ -34,7 +34,7 @@ function LinkedListAcceptance(): void {
 
   // this search will return the node that contains the string five
   const result = ll.search((x) => x === 'five');
-  if (result !== null) console.log('five was found');
+  if (result !== null) console.log(`${result.data} was found`);
 }
 
 export default LinkedListAcceptance;
