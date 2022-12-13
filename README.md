@@ -552,7 +552,7 @@ methods. Internally to the module, we'll use `Node`, and externally we'll expose
 +  previous: () => INode<T> | null;
 +}
 
--class Node<T> implements INode<T> {
+-class Node<T> {
 +class Node<T> implements INode<T> {
   constructor(
     readonly data: T,
