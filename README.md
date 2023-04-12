@@ -2,6 +2,30 @@
 
 ## Development Environment Setup
 
+### Local Development
+Requirements
+- Git
+- Node 18.9+
+- NPM 9+
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+1. Install the following Visual Studio Code plugins:
+    - [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    - [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [rvest.vs-code-prettier-eslint](https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint)
+1. Clone the exercise repository
+    ``` bash
+    git clone https://github.com/growsagely/test-driven-development-exercises-intro.git
+    ```
+1. Install the dependencies
+    ``` bash
+    npm install
+    ```
+1. Run the following command to auto run the test suite any time a file changes.
+    ``` bash
+    npm run test:watch
+    ```
+
 ### GitHub Code Spaces
 1. Log into GitHub
 1. Navigate to the
@@ -9,6 +33,8 @@
    repository
 1. Open Codespaces
    ![Codespace](./readme_img/codespace.png)
+1. Press Ctrl+Shift+\` to open a terminal window
+1. Type `npm run test:watch` to auto run the test suite any time a file changes.
 
 ### Local Development Container
 Requirements
