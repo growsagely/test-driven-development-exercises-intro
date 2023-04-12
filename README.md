@@ -61,6 +61,27 @@ Configuration Steps
 1. Be patient; the first time loading the container may take several minutes.
    Subsequent loads will be much faster.
 
+## Local Development
+Requirements
+- Git
+- Node 18.9+
+- NPM 9+
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+Configuration Steps
+1. Install the following Visual Studio Code plugins:
+    - [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    - [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [rvest.vs-code-prettier-eslint](https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint)
+1. Clone the exercise repository
+    ``` bash
+    git clone https://github.com/growsagely/test-driven-development-exercises-intro.git
+    ```
+1. Install the dependencies
+    ``` bash
+    npm install
+    ```
+
 # Requirements
 The goal is to build a rudimentary, [doubly linked
 list](https://en.wikipedia.org/wiki/Doubly_linked_list) using TypeScript. It
